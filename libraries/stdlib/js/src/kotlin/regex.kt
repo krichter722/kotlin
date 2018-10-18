@@ -123,7 +123,7 @@ public actual class Regex actual constructor(pattern: String, options: Set<Regex
     /**
      * Replaces the first occurrence of this regular expression in the specified [input] string with specified [replacement] expression.
      *
-     * @param replacement A replacement expression that can include substitutions. See [Matcher.appendReplacement] for details.
+     * @param replacement A replacement expression that can include substitutions. See [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace] for details.
      */
     public actual fun replaceFirst(input: CharSequence, replacement: String): String {
         val nonGlobalOptions = options.map { it.value }.joinToString(separator = "")
