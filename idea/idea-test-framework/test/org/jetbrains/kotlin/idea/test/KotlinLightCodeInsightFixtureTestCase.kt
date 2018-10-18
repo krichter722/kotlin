@@ -207,7 +207,7 @@ object CompilerTestDirectives {
     val ALL_COMPILER_TEST_DIRECTIVES = listOf(LANGUAGE_VERSION_DIRECTIVE, JVM_TARGET_DIRECTIVE, COMPILER_ARGUMENTS_DIRECTIVE)
 }
 
-fun configureCompilerOptions(fileText: String, project: Project, module: Module) {
+fun configureCompilerOptions(fileText: String, project: Project, module: Module): Boolean {
     val version = InTextDirectivesUtils.findStringWithPrefixes(fileText, "// $LANGUAGE_VERSION_DIRECTIVE ")
     val jvmTarget = InTextDirectivesUtils.findStringWithPrefixes(fileText, "// $JVM_TARGET_DIRECTIVE ")
     val options = InTextDirectivesUtils.findStringWithPrefixes(fileText, "// $COMPILER_ARGUMENTS_DIRECTIVE ")
@@ -230,7 +230,14 @@ fun configureCompilerOptions(fileText: String, project: Project, module: Module)
 
             KotlinCompilerSettings.getInstance(project).update { this.additionalArguments = options }
         }
+        return true
     }
+
+    return false
+}
+
+fun rollbackCompilerOptions(project: Project, module: Module) {
+    configureLanguageAndApiVersion(project, module, LanguageVersion.LATEST_STABLE.versionString)
 }
 
 fun configureLanguageAndApiVersion(
