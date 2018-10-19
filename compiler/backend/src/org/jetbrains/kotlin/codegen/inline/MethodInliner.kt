@@ -130,7 +130,9 @@ class MethodInliner(
         }
 
         processReturns(resultNode, labelOwner, remapReturn, end)
+
         //flush transformed node to output
+        resultNode.instructions.resetLabels()
         resultNode.accept(MethodBodyVisitor(adapter, true))
 
         sourceMapper.endMapping()
@@ -383,6 +385,7 @@ class MethodInliner(
             }
         }
 
+        node.instructions.resetLabels()
         node.accept(lambdaInliner)
 
         return resultNode

@@ -290,6 +290,7 @@ abstract class InlineCodegen<out T : BaseExpressionCodegen>(
             removeFinallyMarkers(adapter)
         }
 
+        adapter.instructions.resetLabels()
         adapter.accept(MethodBodyVisitor(codegen.v))
 
         if (shouldSpillStack) {
