@@ -117,7 +117,7 @@ projectTest {
         systemProperty("kotlin.ant.classpath", antLauncherJar.asPath)
         systemProperty("kotlin.ant.launcher.class", "org.apache.tools.ant.Main")
     }
-    exclude("org.jetbrains.kotlin.codegen.jdk.JvmTarget*")
+    exclude("org/jetbrains/kotlin/codegen/jdk/JvmTarget*")
 }
 
 fun Project.codegenTest(target: Int, jvm: Int,
