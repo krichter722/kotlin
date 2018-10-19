@@ -237,6 +237,7 @@ fun configureCompilerOptions(fileText: String, project: Project, module: Module)
 }
 
 fun rollbackCompilerOptions(project: Project, module: Module) {
+    // TODO: extract from this commit to next one, add reset of all other options (if possible)
     configureLanguageAndApiVersion(project, module, LanguageVersion.LATEST_STABLE.versionString)
 }
 
