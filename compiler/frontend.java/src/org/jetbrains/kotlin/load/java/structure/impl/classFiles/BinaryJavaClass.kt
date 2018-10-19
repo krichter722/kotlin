@@ -100,10 +100,10 @@ class BinaryJavaClass(
         if (access.isSet(Opcodes.ACC_SYNTHETIC)) return
         if (innerName == null || outerName == null) return
 
-        if (myInternalName == outerName) {
-            context.addInnerClass(name, outerName, innerName)
-            innerClassNameToAccess[context.mapInternalNameToClassId(name).shortClassName] = access
-        }
+        // TODO: ignore this attribute if outerName + innerName != name
+
+        context.addInnerClass(name, outerName, innerName)
+        innerClassNameToAccess[context.mapInternalNameToClassId(name).shortClassName] = access
     }
 
     override fun visit(

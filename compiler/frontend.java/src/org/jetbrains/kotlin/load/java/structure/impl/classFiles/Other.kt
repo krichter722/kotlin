@@ -81,7 +81,7 @@ fun isNotTopLevelClass(classContent: ByteArray): Boolean {
                 }
 
                 override fun visitInnerClass(name: String?, outerName: String?, innerName: String?, access: Int) {
-                    isNotTopLevelClass = isNotTopLevelClass or (name == internalName)
+                    isNotTopLevelClass = isNotTopLevelClass or (name == internalName && name == "$outerName$$innerName")
                 }
             },
             ClassReader.SKIP_CODE or ClassReader.SKIP_DEBUG or ClassReader.SKIP_FRAMES
