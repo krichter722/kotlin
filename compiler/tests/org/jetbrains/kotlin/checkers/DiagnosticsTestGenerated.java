@@ -3608,6 +3608,11 @@ public class DiagnosticsTestGenerated extends AbstractDiagnosticsTest {
                 runTest("compiler/testData/diagnostics/tests/controlFlowAnalysis/localObjectInConstructor.kt");
             }
 
+            @TestMetadata("mainWith12.kt")
+            public void testMainWith12() throws Exception {
+                runTest("compiler/testData/diagnostics/tests/controlFlowAnalysis/mainWith12.kt");
+            }
+
             @TestMetadata("nestedTryFinally.kt")
             public void testNestedTryFinally() throws Exception {
                 runTest("compiler/testData/diagnostics/tests/controlFlowAnalysis/nestedTryFinally.kt");

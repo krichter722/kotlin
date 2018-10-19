@@ -1,4 +1,4 @@
-fun main(args: Array<String>) {
+fun main(<!UNUSED_PARAMETER!>args<!>: Array<String>) {
     "".run {
         <!UNUSED_EXPRESSION!>""<!>
     }
