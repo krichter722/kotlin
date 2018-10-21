@@ -227,7 +227,7 @@ internal constructor(private val nativePattern: Pattern) : Serializable {
     }
 
     actual companion object {
-        /** Returns a literal regex for the specified [literal] string. */
+        /** Returns a regex that matches the specified [literal] string literally. */
         public actual fun fromLiteral(literal: String): Regex = literal.toRegex(RegexOption.LITERAL)
 
         /** Returns a literal pattern for the specified [literal] string. */
