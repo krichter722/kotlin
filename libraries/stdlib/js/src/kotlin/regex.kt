@@ -157,7 +157,7 @@ public actual class Regex actual constructor(pattern: String, options: Set<Regex
         /** Returns a regex that matches the specified [literal] string literally. */
         public actual fun fromLiteral(literal: String): Regex = Regex(escape(literal))
 
-        /** Returns a literal pattern for the specified [literal] string. */
+        /** Returns a regex pattern string that matches for the specified [literal] string literally. */
         public actual fun escape(literal: String): String = literal.nativeReplace(patternEscape, "\\$&")
 
         /** Returns a literal replacement expression for the specified [literal] string. */
